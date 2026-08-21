@@ -163,7 +163,7 @@ header.scrolled .burger span{background:var(--brand)}
 .dep-card:hover .dep-photo{transform:scale(1.06)}
 .dep-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,50,74,.15) 0%,rgba(8,40,60,.32) 55%,rgba(6,30,46,.82) 100%)}
 .dep-card small{position:relative;z-index:1;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.9;text-shadow:0 1px 6px rgba(0,0,0,.4)}
-.dep-card h3{position:relative;z-index:1;font-family:'Montserrat';font-weight:800;font-size:18px;margin-top:4px;line-height:1.15;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.dep-card h3{position:relative;z-index:1;font-family:'Montserrat';font-weight:800;font-size:18px;margin-top:4px;line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.45);overflow-wrap:break-word;word-break:break-word}
 
 /* ---------- Reviews ---------- */
 .rev-top{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:44px;flex-wrap:wrap}
@@ -284,6 +284,9 @@ footer ul a:hover{color:#fff}
   .sec{padding:40px 0}
   .adv-grid,.serv-grid,.rev-grid{grid-template-columns:1fr}
   .dep-grid{grid-template-columns:1fr 1fr}
+  .dep-card{min-height:170px;padding:16px}
+  .dep-card h3{font-size:14.5px}
+  .dep-card small{font-size:10px}
   .foot-grid{grid-template-columns:1fr}
   .form-card{padding:28px 22px}
   .hero-trust{gap:16px}
