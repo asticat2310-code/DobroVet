@@ -250,7 +250,8 @@ footer ul a:hover{color:#fff}
 /* ---------- Floating phone (mobile) ---------- */
 .fab-phone{display:none;position:fixed;right:18px;bottom:20px;z-index:190;width:56px;height:56px;border-radius:50%;
   background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 12px 26px -8px rgba(27,150,213,.75);
-  place-items:center}
+  place-items:center;opacity:0;pointer-events:none;transform:scale(.8);transition:opacity .3s ease, transform .3s ease}
+.fab-phone.show{opacity:1;pointer-events:auto;transform:scale(1)}
 .fab-phone svg{stroke:#fff}
 
 /* ---------- Reveal (only advantages) ---------- */
@@ -291,7 +292,6 @@ footer ul a:hover{color:#fff}
   .form-card{order:1}
   .contact-info{order:2}
   .fab-phone{display:grid}
-  .cookie{bottom:88px}
 }
 
 /* ---------- Hero photo parallax (follows normal cursor) ---------- */
@@ -646,6 +646,17 @@ document.getElementById('successClose').onclick=closeSuccess;
 document.getElementById('successOk').onclick=closeSuccess;
 successModal.addEventListener('click',function(e){if(e.target===successModal)closeSuccess();});
 addEventListener('keydown',function(e){if(e.key==='Escape')closeSuccess();});
+
+/* Floating phone — show only from the second block onward */
+var fab=document.querySelector('.fab-phone');
+var heroSec=document.getElementById('home');
+function updateFab(){
+  if(!fab||!heroSec)return;
+  var r=heroSec.getBoundingClientRect();
+  fab.classList.toggle('show', r.bottom<=0);
+}
+addEventListener('scroll',updateFab,{passive:true});
+updateFab();
 
 /* Cookie banner */
 var cookie=document.getElementById('cookie');
